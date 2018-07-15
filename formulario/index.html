@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="bootstrap.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+    <title>Formulario</title>
+  </head>
+  <body>
+    <div class="container py-2">
+      <p class="lead bg-primary text-white text-uppercase rounded text-center py-2">Ingrese sus datos:</p>
+      <form>
+        <input id="nombre" type="text" placeholder="Ingrese su nombre" class="form-control my-2">
+        <input id="edad" type="text" placeholder="Ingrese su edad" class="form-control my-2">
+        <button id="boton" class="btn btn-primary" type="reset" onclick="capturar();">Agregar</button>
+      </form>
+    </div>
+    <div class="container">
+      <table class="table" id="tabla">
+        <thead class="thead-inverse text-white bg-dark">
+          <tr>
+            <th>Nombre</th>
+            <th>Edad</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+
+    <script>
+      function capturar(){
+        function Persona(nombre, edad){
+          this.nombre = nombre;
+          this.edad = edad;
+        }
+
+      var nombreCapturar = document.getElementById("nombre").value;
+      // console.log(nombreCapturar);
+      var edadCapturar = document.getElementById("edad").value;
+
+      nuevoSujeto = new Persona(nombreCapturar, edadCapturar);
+      console.log(nuevoSujeto);
+      agregar();
+      }
+
+      var baseDatos = [];
+      function agregar(){
+        baseDatos.push(nuevoSujeto);
+        console.log(baseDatos);
+        document.getElementById("tabla").innerHTML += '<tbody><td>'+nuevoSujeto.nombre+'</td><td>'+nuevoSujeto.edad+'</td></tbody>'
+      };
+
+      function validar(){
+        if(getElementById('nombre').value.length == 0){
+          alert('Llenar los datos');
+        }
+        validar();
+      }
+
+
+    </script>
+
+  </body>
+</html>
